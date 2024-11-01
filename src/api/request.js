@@ -1,6 +1,6 @@
 // 인증 토큰을 가져오는 함수 (여기서는 예시로 localStorage를 사용)
 
-// export const getAuthToken = () => localStorage.getItem('accessToken');
+export const getAuthToken = () => localStorage.getItem('accessToken');
 
 // API 공통 요청 처리기
 export const sendRequest = async (instance, method, url, data = {}) => {
@@ -21,7 +21,6 @@ export const sendRequest = async (instance, method, url, data = {}) => {
     throw error;
   }
 };
-s;
 
 // 동적 URL 생성
 export const createUrl = (path, params = {}) => {
