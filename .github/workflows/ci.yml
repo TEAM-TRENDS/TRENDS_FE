@@ -1,0 +1,31 @@
+name: Frontend CI
+
+on:
+  push:
+    branches:
+      - main # main 브랜치에 푸시될 때 실행
+  pull_request:
+    branches:
+      - main # main 브랜치로 PR 생성 시 실행
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # 프로젝트에 맞는 Node.js 버전 사용
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build project
+        run: npm run build
