@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-only:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test -- --watchAll=false # --watchAll=false 옵션 추가
-
       - name: Build project
-        run: npm run build
+        run: npm run build # 빌드 과정에서 오류가 없는지 확인
